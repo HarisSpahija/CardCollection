@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-CardScanner-E58EADB4-299F-47D3-A2B1-291E187C98E7</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\BuyList\**" />
+    <Content Remove="Views\BuyList\**" />
+    <EmbeddedResource Remove="Views\BuyList\**" />
+    <None Remove="Views\BuyList\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
@@ -16,6 +23,10 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\ProductViewModels\" />
   </ItemGroup>
 
 </Project>

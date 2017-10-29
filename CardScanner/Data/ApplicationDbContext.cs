@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using CardScanner.Models;
+using CardScanner.Models.ProductViewModels;
 
 namespace CardScanner.Data
 {
@@ -22,5 +23,9 @@ namespace CardScanner.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<CardScanner.Models.ProductViewModels.Buy> Buy { get; set; }
+
+        public DbSet<CardScanner.Models.ProductViewModels.Sell> Sell { get; set; }
     }
 }

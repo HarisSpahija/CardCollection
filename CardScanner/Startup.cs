@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using CardScanner.Data;
 using CardScanner.Models;
 using CardScanner.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace CardScanner
 {
@@ -22,6 +24,8 @@ namespace CardScanner
         }
 
         public IConfiguration Configuration { get; }
+
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -79,6 +83,16 @@ namespace CardScanner
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //adds localization to make use of the (",") token for pricing.
+            var defaultCulture = new CultureInfo("nl-NL");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture),
+                SupportedCultures = new List<CultureInfo> { defaultCulture },
+                SupportedUICultures = new List<CultureInfo> { defaultCulture }
+            };
+            app.UseRequestLocalization(localizationOptions);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
