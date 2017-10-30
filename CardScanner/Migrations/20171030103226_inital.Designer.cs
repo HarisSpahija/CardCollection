@@ -11,8 +11,8 @@ using System;
 namespace CardScanner.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20171029191128_initial")]
-    partial class initial
+    [Migration("20171030103226_inital")]
+    partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
